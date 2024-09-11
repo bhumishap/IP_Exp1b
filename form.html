@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-shirt Order Form</title>
+</head>
+<body style="background-color: #F0FFF0; font-family: Arial, sans-serif; margin: 0; padding: 20px;">
+    <div style="max-width: 800px; margin: 0 auto; background-color: #DC8BCF; color: black; padding: 20px; border-radius: 8px;">
+        <h1 style="text-align: center;">Customize Your T-shirt</h1>
+        <form id="order-form" action="/submit-order" method="post" onsubmit="return validateForm()">
+            <fieldset style="border: none; margin-bottom: 20px;">
+                <legend style="font-size: 1.2em; margin-bottom: 10px;">Order Details</legend>
+
+                <label for="tagline" style="display: block; margin: 8px 0 4px;">Tagline on the Shirt:</label>
+                <input type="text" id="tagline" name="tagline" placeholder="Enter tagline" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <br><br>
+
+                <label for="color" style="display: block; margin: 8px 0 4px;">Color:</label>
+                <select id="color" name="color" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option value="" disabled selected>Select color</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="orange">Orange</option>
+                    <option value="grey">Grey</option>
+                </select>
+                <br><br>
+
+                <label for="size" style="display: block; margin: 8px 0 4px;">Size:</label>
+                <select id="size" name="size" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option value="" disabled selected>Select size</option>
+                    <option value="xs">Extra Small</option>
+                    <option value="s">Small</option>
+                    <option value="m">Medium</option>
+                    <option value="l">Large</option>
+                    <option value="xl">Extra Large</option>
+                </select>
+                <br><br>
+
+                <label for="quantity" style="display: block; margin: 8px 0 4px;">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <br><br>
+            </fieldset>
+
+            <fieldset style="border: none; margin-bottom: 20px;">
+                <legend style="font-size: 1.2em; margin-bottom: 10px;">Delivery Details</legend>
+                <label for="recipient-name" style="display: block; margin: 8px 0 4px;">Recipient's Name:</label>
+                <input type="text" id="recipient-name" name="recipient-name" placeholder="Full Name" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <br><br>
+
+                <label for="address" style="display: block; margin: 8px 0 4px;">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Street Address" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <br><br>
+
+                <label for="email" style="display: block; margin: 8px 0 4px;">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@example.com" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <br><br>
+
+                <label for="phone" style="display: block; margin: 8px 0 4px;">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="123-456-7890" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </fieldset>
+
+            <label for="comments" style="display: block; margin: 8px 0 4px;">Additional Comments:</label>
+            <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Enter any additional comments or instructions" style="width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+            <br><br>
+
+            <button type="submit" style="background-color: #333; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1em; margin-right: 10px;">Place Order</button>
+            <button type="reset" style="background-color: #777; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1em;">Reset Form</button>
+        </form>
+        <p id="success-message" style="display: none; color: green; text-align: center;">Order submitted successfully!</p>
+    </div>
+    <script>
+        function validateForm() {
+            // Show success message
+            document.getElementById('success-message').style.display = 'block';
+
+            // Prevent actual form submission for demonstration purposes
+            return false; // Change to `true` if you want the form to submit
+        }
+    </script>
+</body>
+</html>
